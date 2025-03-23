@@ -52,3 +52,28 @@ INSERT INTO customers (name, email, joined_date) VALUES
     ('Tanvir Hasan', 'tanvir.hasan@example.com', '2024-01-22'),
     ('Masud Karim', 'masud.karim@example.com', '2024-03-08'),
     ('Hina Parveen', 'hina.parveen@example.com', DEFAULT);
+
+CREATE TABLE orders (
+    id SERIAL PRIMARY KEY,
+    customer_id INT NOT NULL REFERENCES "customers"(id) ON DELETE CASCADE,
+    book_id INT NOT NULL REFERENCES "books"(id) ON DELETE CASCADE,
+    quantity SMALLINT NOT NULL CHECK (quantity >= 0),
+    order_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
+
+INSERT INTO orders (customer_id, book_id, quantity, order_date) VALUES
+    (1, 1, 2, '2025-03-01 10:30:00'),
+    (2, 2, 1, DEFAULT),
+    (3, 3, 3, '2025-03-03 09:20:00'),
+    (4, 4, 5, '2025-03-04 14:00:00'),
+    (5, 5, 1, '2025-03-05 16:15:00'),
+    (6, 6, 4, '2025-03-06 12:00:00'),
+    (7, 7, 2, '2025-03-07 13:30:00'),
+    (8, 8, 6, '2025-03-08 15:00:00'),
+    (9, 9, 3, '2025-03-09 17:00:00'),
+    (10, 10, 2, '2025-03-10 10:00:00'),
+    (11, 11, 4, '2025-03-11 11:15:00'),
+    (12, 12, 1, DEFAULT),
+    (13, 13, 2, '2025-03-13 14:45:00'),
+    (14, 14, 1, '2025-03-14 09:50:00'),
+    (15, 15, 3, '2025-03-15 10:10:00');

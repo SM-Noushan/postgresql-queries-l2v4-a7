@@ -17,12 +17,12 @@ INSERT INTO books (title, author, price, stock, published_year) VALUES
     ('The Hungry Tide', 'Amitav Ghosh', 450.00, 150, 2004),
     ('Nobel Prize', 'Rabindranath Tagore', 350.00, 200, 1913),
     ('The Shadow of the Wind', 'Carlos Ruiz Zafón', 550.00, 90, 2001),
-    ('Chandranath', 'Dinesh Chandra Sen', 350.00, 70, 1955),
+    ('Chandranath', 'Dinesh Chandra Sen', 350.00, 0, 1955),
     ('The Glass Palace', 'Amitav Ghosh', 600.00, 120, 2000),
     ('In Search of Lost Time', 'Marcel Proust', 750.00, 80, 1913),
     ('The Alchemist', 'Paulo Coelho', 400.00, 180, 1988),
     ('Lajja', 'Taslima Nasreen', 350.00, 220, 1993),
-    ('Khilafat Movement', 'Maulana Azad', 600.00, 60, 1941),
+    ('Khilafat Movement', 'Maulana Azad', 600.00, 0, 1941),
     ('Jahangirnagar: A Glimpse of the Past', 'Shamsul Alam', 250.00, 50, 1980),
     ('Bangladesh: A Legacy of Blood', 'Anthony Mascarenhas', 450.00, 40, 1986),
     ('Kobi Gyan', 'Jasimuddin', 300.00, 110, 1975),
@@ -77,3 +77,8 @@ INSERT INTO orders (customer_id, book_id, quantity, order_date) VALUES
     (13, 13, 2, '2025-03-13 14:45:00'),
     (14, 14, 1, '2025-03-14 09:50:00'),
     (15, 15, 3, '2025-03-15 10:10:00');
+
+
+-- SQL Queries
+-- Find books that are out of stock.
+SELECT * FROM books WHERE stock = 0;

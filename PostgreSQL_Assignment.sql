@@ -104,3 +104,6 @@ SELECT name, count(name) as "orders_count" FROM orders as o
     JOIN customers as c ON o.customer_id = c.id
     GROUP BY name
     HAVING count(name) > 1;
+
+-- Find the average price of books in the store
+SELECT ROUND(AVG(price), 2) as "average_price" FROM books;

@@ -81,4 +81,11 @@ INSERT INTO orders (customer_id, book_id, quantity, order_date) VALUES
 
 -- SQL Queries
 -- Find books that are out of stock.
-SELECT * FROM books WHERE stock = 0;
+SELECT * FROM books 
+    WHERE stock = 0;
+
+--  Retrieve the most expensive book in the store.
+SELECT * from books
+    WHERE price = (
+        SELECT max(price) FROM books
+    );

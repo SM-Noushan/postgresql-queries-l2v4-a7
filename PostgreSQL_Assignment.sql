@@ -91,7 +91,7 @@ SELECT * from books
     );
 
 -- Find the total number of orders placed by each customer.
-SELECT name, SUM(quantity) as "total_orders" FROM orders as o
+SELECT name, count(name) as "total_orders" FROM orders as o
     JOIN customers as c ON c.id = o.customer_id
     GROUP BY name;
 

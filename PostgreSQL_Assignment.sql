@@ -28,3 +28,27 @@ INSERT INTO books (title, author, price, stock, published_year) VALUES
     ('Kobi Gyan', 'Jasimuddin', 300.00, 110, 1975),
     ('Raat Baka, Pahar Gora', 'Shahabuddin', 250.00, 130, 1990),
     ('Poetry of Liberation', 'Kazi Nazrul Islam', 500.00, 150, 1935);
+
+CREATE TABLE customers (
+    id SERIAL PRIMARY KEY,
+    name VARCHAR(100) NOT NULL,
+    email VARCHAR(100) NOT NULL UNIQUE,
+    joined_date DATE DEFAULT CURRENT_DATE
+);
+
+INSERT INTO customers (name, email, joined_date) VALUES
+    ('Amina Begum', 'amina.begum@example.com', '2024-01-15'),
+    ('Rahim Uddin', 'rahim.uddin@example.com', '2024-02-20'),
+    ('Shahida Akter', 'shahida.akter@example.com', '2024-03-05'),
+    ('Saidur Rahman', 'saidur.rahman@example.com', '2024-01-25'),
+    ('Jannatul Ferdous', 'jannatul.ferdous@example.com', '2024-03-10'),
+    ('Mahfuzur Rahman', 'mahfuzur.rahman@example.com', DEFAULT),
+    ('Farhana Yasmin', 'farhana.yasmin@example.com', '2024-02-15'),
+    ('Imran Hossain', 'imran.hossain@example.com', '2024-03-01'),
+    ('Rifat Mahmud', 'rifat.mahmud@example.com', '2024-02-28'),
+    ('Selina Sultana', 'selina.sultana@example.com', '2024-01-10'),
+    ('Shihab Uddin', 'shihab.uddin@example.com', '2024-03-12'),
+    ('Nazia Rahman', 'nazia.rahman@example.com', '2024-02-25'),
+    ('Tanvir Hasan', 'tanvir.hasan@example.com', '2024-01-22'),
+    ('Masud Karim', 'masud.karim@example.com', '2024-03-08'),
+    ('Hina Parveen', 'hina.parveen@example.com', DEFAULT);

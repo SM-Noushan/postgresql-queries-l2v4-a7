@@ -107,3 +107,8 @@ SELECT name, count(name) as "orders_count" FROM orders as o
 
 -- Find the average price of books in the store
 SELECT ROUND(AVG(price), 2) as "average_price" FROM books;
+
+-- Increase the price of all books published before 2000 by 10%.
+UPDATE books
+    SET price = price + (price * 0.1)
+    WHERE published_year < 2000;

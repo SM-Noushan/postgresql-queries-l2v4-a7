@@ -98,3 +98,9 @@ SELECT name, SUM(quantity) as "total_orders" FROM orders as o
 -- Calculate the total revenue generated from book sales.
 SELECT SUM(price * quantity) as "total_revenue" FROM orders as o
     JOIN books as b ON o.book_id = b.id;
+
+-- List all customers who have placed more than one order.
+SELECT name, count(name) as "orders_count" FROM orders as o
+    JOIN customers as c ON o.customer_id = c.id
+    GROUP BY name
+    HAVING count(name) > 1;

@@ -112,3 +112,10 @@ SELECT ROUND(AVG(price), 2) as "average_price" FROM books;
 UPDATE books
     SET price = price + (price * 0.1)
     WHERE published_year < 2000;
+
+
+-- Delete customers who haven't placed any orders.
+DELETE FROM customers
+    WHERE id NOT IN (
+        SELECT customer_id FROM orders
+    );

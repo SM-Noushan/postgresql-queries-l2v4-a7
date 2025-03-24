@@ -93,17 +93,17 @@ SELECT * from books
 -- Find the total number of orders placed by each customer.
 SELECT name, count(name) as "total_orders" FROM orders as o
     JOIN customers as c ON c.id = o.customer_id
-    GROUP BY name;
+    GROUP BY c.id;
 
 -- Calculate the total revenue generated from book sales.
 SELECT SUM(price * quantity) as "total_revenue" FROM orders as o
     JOIN books as b ON o.book_id = b.id;
 
 -- List all customers who have placed more than one order.
-SELECT name, count(name) as "orders_count" FROM orders as o
+SELECT name, count(c.id) as "orders_count" FROM orders as o
     JOIN customers as c ON o.customer_id = c.id
-    GROUP BY name
-    HAVING count(name) > 1;
+    GROUP BY c.id
+    HAVING count(c.id) > 1;
 
 -- Find the average price of books in the store
 SELECT ROUND(AVG(price), 2) as "average_price" FROM books;
